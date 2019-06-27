@@ -1,0 +1,9 @@
+{
+  "token": "Your Discord Bot Token",
+  "w2gkey": "Your Watch2gether api key",
+  "cx": "Your google custom search api key",
+  "apikey": "your google console project key",
+  "url": "database url -> jdbc:mysql://<database ip>:3306/<database>?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
+  "user": "database user",
+  "password": "database password"
+}

@@ -1,0 +1,6 @@
+
+.idea/
+src/main/java/de/flexusma/wavybot/utils/BotToken.java
+target/classes/de/flexusma/wavybot/utils/BotToken.class
+.idea/workspace.xml
+config.json
