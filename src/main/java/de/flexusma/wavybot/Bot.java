@@ -23,7 +23,7 @@ import java.io.IOException;
 
 public class Bot {
 
-    private ShardManager sm;
+    public static ShardManager sm;
 
     Preferences pref;
     public static MPlayer player;
@@ -137,6 +137,8 @@ public class Bot {
                     .setGame(Game.playing("loading..."))
                     .addEventListeners(waiter,client.build())
                     .build();
+
+
 
 
 

@@ -17,6 +17,7 @@ import java.util.List;
 public class About extends Command {
     Preferences pref ;
 
+
     public About(){
         this.name = "about";
         this.help = "gives Information about the bot\n" +
@@ -27,6 +28,7 @@ public class About extends Command {
     }
     @Override
     protected void execute(CommandEvent event) {
+        int shardid = event.getJDA().getShardInfo().getShardId();
         System.out.println(event.getJDA().getShardInfo().getShardString());
         JDA jda = event.getJDA();
         try {
@@ -44,7 +46,7 @@ public class About extends Command {
         event.reply(EmbededBuilder.create("WavvyBot","Hello! I am Wavvy, an example bot\n" +
                 "Type !help to see my commands!\n" +
                 "If you want to use me on your server, go ahead here comes an invite link:\n" +
-                "```" +"https://discordapp.com/oauth2/authorize?client_id=592088339666960394&scope=bot&permissions=8"+"```"+
+                "```" +"https://discordapp.com/oauth2/authorize?client_id="+Bot.sm.getShardById(shardid).getSelfUser().getId()+"&scope=bot&permissions=8"+"```"+
                 "\n The current prefix is: "+ "```"+pref.getPrefix()+"```" , Color.CYAN, "https://flexusma.de/imag/wave.png",fld).build());
 
         Bot.autoDelete(event,pref);
