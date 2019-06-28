@@ -10,62 +10,62 @@ Please take a look at [this guide](https://github.com/flexusma/Wavvy/wiki)
 
 Please note, that even when you change the prefix, you are allways able to use @Wavvy (@mention) as the prefix (you need to use space:  *@Wavvy help*)
 
-* ping
+* `ping`
 checks the bot's latency
 
-* about
+* `about`
 gives Information about the bot
 usage: <prefix>about
   
-* delete
+* `delete`
 deletes messages by id or count
 usage: <prefix>delete <number|message id>
   
-* prefix
+* `prefix`
 change the prefix of the bot
 usage: <old prefix for example '!'>prefix <new prefix>
   
-* play
+* `play`
 plays the given URL
 usage: <prefix>play <url>
   
-* skip
+* `skip`
 skips to the next song in queue
 usage: <prefix>skip
   
-* clearqueue
+* `clearqueue`
 stops mucis playback and clear playback queue
 usage: <prefix>clearqueue
   
-* stop
+* `stop`
 stops music playback
 usage: <prefix>stop
   
-* resume
+* `resume`
 resume music playback
 usage: <prefix>resume
   
-* pause
+* `pause`
 pauses music playback
 usage: <prefix>pause
   
-* autodelete
+* `autodelete`
 Enables / Disables automatic command message deletion / Shows current status if no arguments given
 usage: <prefix>autodelete <on/off/"">
   
-* dwk
+* `dwk`
 plays DWK in your current channel
 usage: <prefix>dwk
   
-* oof
+* `oof`
 plays oof in your current channel
 usage: <prefix>oof
 
-* bml
+* `bml`
 plays Bruder muss los in your current channel
 usage: <prefix>bml
   
-* w2g
+* `w2g`
 creates a new Watch2gether room
 usage: <prefix>wtg <media/video link/"">
 
