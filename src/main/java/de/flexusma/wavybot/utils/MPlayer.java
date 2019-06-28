@@ -152,17 +152,12 @@ public class MPlayer {
     }
 
     public void nowQueue(AudioManager manager, TextChannel channel){
-        BlockingQueue<AudioTrack> bq = null;
+
         AudioTrack track = null;
-        try {
-            if(manager.isConnected()) {
-                bq = getGuildAudioPlayer(channel.getGuild()).scheduler.getQueue();
-            }
-            if(bq!=null)
-            track= bq.take();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
+            if(manager.isConnected())
+                track = getGuildAudioPlayer(channel.getGuild()).scheduler.now;
+
         if(track!=null)
         channel.sendMessage(//"Adding to queue: " + track.getInfo().title
                 EmbededBuilder.create("Currently playing", track.getInfo().title+"\n"+
