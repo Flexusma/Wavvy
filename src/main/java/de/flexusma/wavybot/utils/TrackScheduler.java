@@ -32,6 +32,7 @@ public class TrackScheduler extends AudioEventAdapter {
     }
   Guild g;
     CommandEvent event;
+    int q_index = 0;
 
     /**
      * @param player The audio player this scheduler uses
@@ -81,8 +82,9 @@ public class TrackScheduler extends AudioEventAdapter {
         // Start the next track, regardless of if something is already playing or not. In case queue was empty, we are
         // giving null to startTrack, which is a valid argument and will simply stop the player.
 
+        if(queue.remainingCapacity()<=2147483646)
         player.startTrack(queue.take(), false);
-
+        else g.getJDA().getGuildById(g.getId()).getAudioManager().closeAudioConnection();
 
     }
 

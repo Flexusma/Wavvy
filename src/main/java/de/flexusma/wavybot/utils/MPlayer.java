@@ -68,15 +68,14 @@ public class MPlayer {
             public void playlistLoaded(AudioPlaylist playlist) {
                 AudioTrack firstTrack = playlist.getSelectedTrack();
 
-                if (firstTrack == null) {
-                    firstTrack = playlist.getTracks().get(0);
-                }
+
 
                 channel.sendMessage(//"Adding to queue " + firstTrack.getInfo().title + " (first track of playlist " + playlist.getName() + ")"
-                         EmbededBuilder.create("Adding to queue", firstTrack.getInfo().title +"\n"+
+                         EmbededBuilder.create("Adding to queue", playlist.getName() +"\n"+
                                  "```"+trackUrl+"```",Color.green).build()).queue();
 
-                play(channel.getGuild(), musicManager, firstTrack,"", event);
+                for(AudioTrack t : playlist.getTracks())
+                play(channel.getGuild(), musicManager, t,"", event);
             }
 
             @Override
