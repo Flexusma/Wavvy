@@ -33,9 +33,12 @@ usage: <prefix>play <url>
 skips to the next song in queue
 usage: <prefix>skip
   
-* `clearqueue`
-stops mucis playback and clear playback queue
-usage: <prefix>clearqueue
+* `queue`
+queue commands:
+queue list - shows songs in playlist
+queue clear - clears the playlist
+queue now - shows current song
+
   
 * `stop`
 stops music playback
