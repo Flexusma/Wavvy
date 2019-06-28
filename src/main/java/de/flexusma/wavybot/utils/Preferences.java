@@ -8,6 +8,7 @@ public class Preferences implements Serializable {
 
     String Prefix = "~";
     boolean autoDelete = false;
+    int volume = 100;
 
 
     public Preferences() {
@@ -32,6 +33,14 @@ public class Preferences implements Serializable {
 
     public boolean isAutoDelete() {
         return autoDelete;
+    }
+
+    public int getVolume() {
+        return volume;
+    }
+
+    public void setVolume(int volume) {
+        this.volume = volume;
     }
 }
 

@@ -28,12 +28,14 @@ Preferences pref;
     @Override
     protected void execute(CommandEvent event) {
         JDA jda = event.getJDA();
-        pref = Database.initPref(jda,event.getGuild().getId());
+        pref = Database.initPref(jda, event.getGuild().getId());
 
         MPlayer player = Bot.player;
-        if(event.getMember().getVoiceState().getChannel()!=null)
-            if(!event.getArgs().equals("")&&!event.getArgs().equals(" "))
-            player.loadAndPlay(event.getTextChannel(),event.getArgs(), event.getMember().getVoiceState().getChannel().getId(),event);
+        if (event.getMember().getVoiceState().getChannel() != null)
+            if (!event.getArgs().equals("") && !event.getArgs().equals(" ")){
+                player.loadAndPlay(event.getTextChannel(), event.getArgs(), event.getMember().getVoiceState().getChannel().getId(), event);
+        player.setVolume(pref.getVolume(), event.getTextChannel());
+    }
             else event.replyError("Error, please specify a link to play from or type: \n"+
                     "```"+pref.getPrefix()+name+"``` - "+help);
         else event.replyError("Error, you have to be in a voice channel to do that ^^");

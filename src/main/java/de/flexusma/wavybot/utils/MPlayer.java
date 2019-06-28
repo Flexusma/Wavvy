@@ -174,6 +174,11 @@ public class MPlayer {
         m.player.setPaused(false);
         channel.sendMessage("Playback resumed").queue();
     }
+    public void setVolume(int i, TextChannel channel){
+        GuildMusicManager m = getGuildAudioPlayer(channel.getGuild());
+        m.player.setVolume(i);
+
+    }
 
     private static void connectToFirstVoiceChannel(AudioManager audioManager) {
         if (!audioManager.isConnected() && !audioManager.isAttemptingToConnect()) {

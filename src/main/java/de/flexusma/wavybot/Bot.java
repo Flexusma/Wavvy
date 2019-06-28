@@ -124,7 +124,8 @@ public class Bot {
                 new Oof(),
                 new BML(),
                 new Watch2Gether(),
-                new Queue()
+                new Queue(),
+                new Volume()
         );
 
 
