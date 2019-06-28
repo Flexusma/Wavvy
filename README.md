@@ -78,3 +78,6 @@ usage: <prefix>wtg <media/video link/"">
 
 ## License
 See [LICENSE.txt](https://github.com/Flexusma/Wavvy/blob/master/LICENSE) for more info.
+
+For the discord testers:
+If you want to, you can use my database Server, just pm me on discord: Flexusma#7419
