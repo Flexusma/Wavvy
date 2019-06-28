@@ -1,28 +1,21 @@
 package de.flexusma.wavybot.utils;
 
-import com.jagrosh.jdautilities.command.src.main.java.com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.src.main.java.com.jagrosh.jdautilities.command.CommandEvent;
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayer;
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayerManager;
 import com.sedmelluq.discord.lavaplayer.player.DefaultAudioPlayerManager;
-import com.sedmelluq.discord.lavaplayer.player.event.AudioEvent;
 import com.sedmelluq.discord.lavaplayer.player.event.AudioEventAdapter;
-import com.sedmelluq.discord.lavaplayer.player.event.AudioEventListener;
 import com.sedmelluq.discord.lavaplayer.source.AudioSourceManagers;
-import com.sedmelluq.discord.lavaplayer.tools.FriendlyException;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrackEndReason;
-import de.flexusma.wavybot.Bot;
-import javafx.application.Platform;
 import net.dv8tion.jda.core.entities.Guild;
-import net.dv8tion.jda.core.managers.AudioManager;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class TrackScheduler extends AudioEventAdapter {
     private final AudioPlayer player;
-    private final BlockingQueue<AudioTrack> queue;
+    public BlockingQueue<AudioTrack> queue=null;
 
 
     public static AudioPlayerManager playerManager = new DefaultAudioPlayerManager();
@@ -86,6 +79,10 @@ public class TrackScheduler extends AudioEventAdapter {
         player.startTrack(queue.take(), false);
         else g.getJDA().getGuildById(g.getId()).getAudioManager().closeAudioConnection();
 
+    }
+
+    public BlockingQueue<AudioTrack> getQueue(){
+        return queue;
     }
 
     @Override

@@ -115,7 +115,7 @@ public class Bot {
                 new Prefix(),
                 new Play(),
                 new SkipTrack(),
-                new ClearQueue(),
+                //new ClearQueue(),
                 new StopPlayback(),
                 new Resume(),
                 new Pause(),
@@ -123,7 +123,8 @@ public class Bot {
                 new DWK(),
                 new Oof(),
                 new BML(),
-                new Watch2Gether()
+                new Watch2Gether(),
+                new Queue()
         );
 
 

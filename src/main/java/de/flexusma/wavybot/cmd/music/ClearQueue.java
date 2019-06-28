@@ -26,7 +26,7 @@ public class ClearQueue extends Command {
         pref = Database.initPref(jda,event.getGuild().getId());
 
         MPlayer player = Bot.player;
-        player.clearQueue(event.getGuild().getAudioManager(),event.getTextChannel());
+        //player.clearQueue(event.getGuild().getAudioManager(),event.getTextChannel());
 
         Bot.autoDelete(event,pref);
     }

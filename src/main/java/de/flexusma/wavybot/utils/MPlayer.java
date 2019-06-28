@@ -11,13 +11,17 @@ import com.sedmelluq.discord.lavaplayer.tools.FriendlyException;
 import com.sedmelluq.discord.lavaplayer.track.AudioPlaylist;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import net.dv8tion.jda.core.entities.Guild;
+import net.dv8tion.jda.core.entities.MessageEmbed;
 import net.dv8tion.jda.core.entities.TextChannel;
 import net.dv8tion.jda.core.entities.VoiceChannel;
 import net.dv8tion.jda.core.managers.AudioManager;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.concurrent.BlockingQueue;
 
 public class MPlayer {
 
@@ -120,12 +124,49 @@ public class MPlayer {
         getGuildAudioPlayer(channel.getGuild()).scheduler.clearQueue();
     }
 
-    public void clearQueue(AudioManager manager, TextChannel channel){
+    public void clearQueue(AudioManager manager, TextChannel channel, CommandEvent e){
 
         getGuildAudioPlayer(channel.getGuild()).scheduler.clearQueue();
         manager.closeAudioConnection();
 
         channel.sendMessage("Queue Cleared").queue();
+    }
+
+    public List<MessageEmbed.Field> listQueue(AudioManager manager, TextChannel channel){
+        if(manager.isConnected()) {
+            BlockingQueue<AudioTrack> tr = getGuildAudioPlayer(channel.getGuild()).scheduler.getQueue();
+
+            List<MessageEmbed.Field> f = new ArrayList<>();
+            boolean b = false;
+            for (AudioTrack t : tr) {
+                if (b)
+                    b = !b;
+                f.add(new MessageEmbed.Field(t.getInfo().title, "```" + t.getInfo().uri + "```", b));
+
+            }
+            return f;
+        }
+
+        return null;
+
+    }
+
+    public void nowQueue(AudioManager manager, TextChannel channel){
+        BlockingQueue<AudioTrack> bq = null;
+        AudioTrack track = null;
+        try {
+            if(manager.isConnected()) {
+                bq = getGuildAudioPlayer(channel.getGuild()).scheduler.getQueue();
+            }
+            if(bq!=null)
+            track= bq.take();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if(track!=null)
+        channel.sendMessage(//"Adding to queue: " + track.getInfo().title
+                EmbededBuilder.create("Currently playing", track.getInfo().title+"\n"+
+                        "```"+track.getInfo().uri+"```", Color.green, GoogleImageSearch.search(track.getInfo().title)).build()).queue();
     }
 
     public void pausePlayback(TextChannel channel){
