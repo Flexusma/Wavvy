@@ -6,6 +6,69 @@ Made for Discord Hackweek.
 ## Installation
 Please take a look at [this guide](https://github.com/flexusma/Wavvy/wiki)
 
+## Functions & Commands
+
+Please note, that even when you change the prefix, you are allways able to use @Wavvy (@mention) as the prefix (you need to use space:  *@Wavvy help*)
+
+* `ping`
+checks the bot's latency
+
+* `about`
+gives Information about the bot
+usage: <prefix>about
+  
+* `delete`
+deletes messages by id or count
+usage: <prefix>delete <number|message id>
+  
+* `prefix`
+change the prefix of the bot
+usage: <old prefix for example '!'>prefix <new prefix>
+  
+* `play`
+plays the given URL
+usage: <prefix>play <url>
+  
+* `skip`
+skips to the next song in queue
+usage: <prefix>skip
+  
+* `clearqueue`
+stops mucis playback and clear playback queue
+usage: <prefix>clearqueue
+  
+* `stop`
+stops music playback
+usage: <prefix>stop
+  
+* `resume`
+resume music playback
+usage: <prefix>resume
+  
+* `pause`
+pauses music playback
+usage: <prefix>pause
+  
+* `autodelete`
+Enables / Disables automatic command message deletion / Shows current status if no arguments given
+usage: <prefix>autodelete <on/off/"">
+  
+* `dwk`
+plays DWK in your current channel
+usage: <prefix>dwk
+  
+* `oof`
+plays oof in your current channel
+usage: <prefix>oof
+
+* `bml`
+plays Bruder muss los in your current channel
+usage: <prefix>bml
+  
+* `w2g`
+creates a new Watch2gether room
+usage: <prefix>wtg <media/video link/"">
+
 ## Prerequisites
 - Java 8 (only jre required, the bot is already compiled in Wavvybot.jar)
 - Some Api keys
