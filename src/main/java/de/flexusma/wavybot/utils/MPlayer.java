@@ -99,9 +99,10 @@ public class MPlayer {
 
 
     private void play(Guild guild, GuildMusicManager musicManager, AudioTrack track, String channelID,CommandEvent event) {
-        if(channelID.equals(""))
-        connectToFirstVoiceChannel(guild.getAudioManager());
-        else connectToVoiceChannelById(guild.getAudioManager(),channelID);
+        //if(channelID.equals(""))
+        //connectToFirstVoiceChannel(guild.getAudioManager());
+       // else
+            connectToVoiceChannelById(guild.getAudioManager(),channelID);
 
         musicManager.scheduler.queue(track,guild,event);
 
