@@ -6,6 +6,8 @@ Made for Discord Hackweek.
 ## Installation
 Please take a look at [this guide](https://github.com/flexusma/Wavvy/wiki)
 
+If you dont want to do all this stuff, ou can simply invite the bot via https://discordapp.com/oauth2/authorize?client_id=592088339666960394&scope=bot&permissions=536071383
+
 ## Functions & Commands
 
 Please note, that even when you change the prefix, you are allways able to use @Wavvy (@mention) as the prefix (you need to use space:  *@Wavvy help*)
