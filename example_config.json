@@ -6,4 +6,5 @@
   "url": "database url -> jdbc:mysql://<database ip>:3306/<database>?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
   "user": "database user",
   "password": "database password"
+  "ytapikey": "your youtube api v3 Key"
 }

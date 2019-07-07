@@ -29,18 +29,11 @@ usage: <old prefix for example '!'>prefix <new prefix>
   
 * `play`
 plays the given URL
-usage: <prefix>play <url>
+usage: <prefix>play <url/search>
   
 * `skip`
 skips to the next song in queue
 usage: <prefix>skip
-  
-* `queue`
-queue commands:
-queue list - shows songs in playlist
-queue clear - clears the playlist
-queue now - shows current song
-
   
 * `stop`
 stops music playback
@@ -52,7 +45,7 @@ usage: <prefix>resume
   
 * `pause`
 pauses music playback
-usage: <prefix>pause
+usage: <prefix>pasue
   
 * `autodelete`
 Enables / Disables automatic command message deletion / Shows current status if no arguments given
@@ -65,7 +58,7 @@ usage: <prefix>dwk
 * `oof`
 plays oof in your current channel
 usage: <prefix>oof
-
+  
 * `bml`
 plays Bruder muss los in your current channel
 usage: <prefix>bml
@@ -73,6 +66,16 @@ usage: <prefix>bml
 * `w2g`
 creates a new Watch2gether room
 usage: <prefix>wtg <media/video link/"">
+  
+* `queue`
+queue commands:
+queue list - shows songs in playlist
+queue clear - clears the playlist
+queue now - shows current song
+
+* `volume`
+changes the volume of the bot
+usage: <prefix>volume <int>
 
 ## Prerequisites
 - Java 8 (only jre required, the bot is already compiled in Wavvybot.jar)
