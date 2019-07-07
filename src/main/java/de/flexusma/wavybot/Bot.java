@@ -70,6 +70,10 @@ public class Bot {
             System.out.println(password);
             BotToken.password=password;
 
+            String ytapikey= (String) details.get(("ytapikey"));
+            System.out.println(ytapikey);
+            BotToken.ytapikey=ytapikey;
+
 
 
         } catch (IOException e) {

@@ -64,6 +64,7 @@ public class TrackScheduler extends AudioEventAdapter {
         }
         try {
             nextTrack();
+            nextTrack();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

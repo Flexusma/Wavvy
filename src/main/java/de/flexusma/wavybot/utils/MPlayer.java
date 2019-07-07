@@ -1,5 +1,6 @@
 package de.flexusma.wavybot.utils;
 
+import com.google.api.services.youtube.model.SearchListResponse;
 import com.jagrosh.jdautilities.command.src.main.java.com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.src.main.java.com.jagrosh.jdautilities.command.CommandEvent;
 import com.sedmelluq.discord.lavaplayer.player.AudioLoadResultHandler;
@@ -8,8 +9,11 @@ import com.sedmelluq.discord.lavaplayer.player.AudioPlayerManager;
 import com.sedmelluq.discord.lavaplayer.player.DefaultAudioPlayerManager;
 import com.sedmelluq.discord.lavaplayer.source.AudioSourceManagers;
 import com.sedmelluq.discord.lavaplayer.tools.FriendlyException;
+import com.sedmelluq.discord.lavaplayer.track.AudioItem;
 import com.sedmelluq.discord.lavaplayer.track.AudioPlaylist;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
+import com.sedmelluq.discord.lavaplayer.track.BaseAudioTrack;
+import com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor;
 import net.dv8tion.jda.core.entities.Guild;
 import net.dv8tion.jda.core.entities.MessageEmbed;
 import net.dv8tion.jda.core.entities.TextChannel;
@@ -55,7 +59,8 @@ public class MPlayer {
 
 
 
-
+        SearchListResponse res = YoutubeSearch.search(trackUrl);
+        System.out.println("https://www.youtube.com/watch?v="+res.getItems().get(0).getId().getVideoId());
 
 
         playerManager.loadItemOrdered(musicManager, trackUrl, new AudioLoadResultHandler() {
@@ -79,19 +84,26 @@ public class MPlayer {
                                  "```"+trackUrl+"```",Color.green).build()).queue();
 
                 for(AudioTrack t : playlist.getTracks())
-                play(channel.getGuild(), musicManager, t,"", event);
+                play(channel.getGuild(), musicManager, t,channelID, event);
             }
 
             @Override
             public void noMatches() {
+                if(res==null)
                 channel.sendMessage(EmbededBuilder.create("Sorry, I did not find anything to play",
                         "```"+trackUrl+"```", Color.yellow).build()).queue();
+                else {
+                    String t = "https://www.youtube.com/watch?v="+res.getItems().get(0).getId().getVideoId();
+                    loadAndPlay(channel,t,channelID,event);
+                }
             }
 
             @Override
             public void loadFailed(FriendlyException exception) {
                 channel.sendMessage(EmbededBuilder.create("Bleep. bloop. Woosh~ Error!","Hey, semms like something went wrong, please check your url: \n"+
                         "```"+trackUrl+"```", Color.red).build()).queue();
+
+
             }
         });
     }
